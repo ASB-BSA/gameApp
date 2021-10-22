@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '@imgs/logo.svg';
+import '@css/global/App.css';
+import styles from '@css/module/sample.module.scss';
+import { TestComponent } from '@/components';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className={styles.sampleComponent}>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
@@ -19,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <TestComponent />
     </div>
   );
 }
