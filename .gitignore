@@ -6,6 +6,8 @@
 .firebaserc
 firebase.json
 firestore.rules
+firestore.index
+firestore.indexes.json
 
 
 ### Go ###
