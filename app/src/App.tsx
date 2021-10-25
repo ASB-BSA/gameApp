@@ -3,6 +3,7 @@ import logo from '@imgs/logo.svg';
 import '@css/global/App.css';
 import styles from '@css/module/sample.module.scss';
 import { TestComponent } from '@/components';
+import { Text } from '@chakra-ui/react';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <Text>test</Text>
         </a>
       </header>
       <TestComponent />
