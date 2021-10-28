@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import 'destyle.css';
+import '@css/global/global.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
