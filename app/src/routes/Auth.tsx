@@ -4,7 +4,7 @@ import { Home } from '@/pages';
 const Auth = () => {
   return (
     <>
-      <Route path="/auth" component={Home} />
+      <Route exact path="/auth" component={Home} />
     </>
   )
 }

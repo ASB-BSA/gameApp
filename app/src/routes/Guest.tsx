@@ -4,7 +4,7 @@ import { Home } from '@/pages';
 const Guest = () => {
   return (
     <>
-      <Route path="/" component={Home} />
+      <Route exact path="/" component={Home} />
     </>
   )
 }
