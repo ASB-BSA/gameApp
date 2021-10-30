@@ -7,13 +7,11 @@ import styled from 'styled-components';
 const Home = () => {
   const [status, setStatus] = useState<number>(0);
 
-  console.log('render');
-
   return (
     <Wrapper>
       <Inner status={status}>
-        <Logo><img src={logo} alt="" /></Logo>
-        <PlayButton onClick={() => setStatus(1)} />
+        <Logo status={status}><img src={logo} alt="" /></Logo>
+        <PlayButton status={status} onClick={() => setStatus(1)} />
       </Inner>
     </Wrapper>
   )
@@ -55,24 +53,30 @@ const Inner = styled.div<{ status: number }>`
   }
 `;
 
-const Logo = styled.h1`
+const Logo = styled.h1<{ status: number }>`
   position: absolute;
-  top: 347px;
+  top: ${props => props.status > 0 ? '-100%' : '347px'};
   left: 50%;
   transform: translateX(-50%);
   width: 637px;
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  opacity: ${props => props.status > 0 ? 0 : 1};
 `;
 
-const PlayButton = styled.div`
+const PlayButton = styled.div<{ status: number }>`
   position: absolute;
-  top: 641px;
+  top: ${props => props.status > 0 ? '100%' : '641px'};
   left: 50%;
   transform: translateX(-50%);
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
   width: 427px;
   height: 272px;
   background-image: url(${playButton});
   background-size: cover;
   background-position: center;
+  opacity: ${props => props.status > 0 ? 0 : 1};
 `
 
 export default Home;
