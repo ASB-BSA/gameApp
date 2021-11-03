@@ -1,6 +1,9 @@
+@import "../foundation";
+
 .wrapper {
   position: relative;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   &::before {
     content: "";
     position: absolute;
@@ -9,8 +12,67 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url(${bg});
+    background-image: url("#{$imgPath}/home/home__bg.jpg");
     background-size: cover;
     background-position: center;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    opacity: 0;
+  }
+  &_active {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 347px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 637px;
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+  &_active {
+    opacity: 0;
+    transform: translate(-50%, -100vh);
+  }
+}
+
+.playButton {
+  position: absolute;
+  top: 641px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  width: 427px;
+  height: 272px;
+  background-image: url("#{$imgPath}/home/home__play-button.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  &_active {
+    opacity: 0;
+    transform: translate(-50%, 100vh);
   }
 }
