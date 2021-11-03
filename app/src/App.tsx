@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Route from '@/routes';
 import Provider from '@/providers';
 
