@@ -1,2 +1,2 @@
 export { default as useAnonymousUser } from './useAnonymousUser';
-export { default as useHoge } from './useHoge';
+export { default as useAuth } from './useAuth';

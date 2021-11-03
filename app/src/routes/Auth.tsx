@@ -1,11 +1,12 @@
+import { AuthProvider } from '@/providers';
+import { Test } from '@/pages/Auth';
 import { Route } from 'react-router-dom';
-import { Home } from '@/pages';
 
-const Auth = () => {
+const Auth: React.FC = () => {
   return (
-    <>
-      <Route exact path="/auth" component={Home} />
-    </>
+    <AuthProvider>
+      <Route exact path="/auth" component={Test} />
+    </AuthProvider>
   )
 }
 

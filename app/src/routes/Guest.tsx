@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { Home } from '@/pages';
+import { Home } from '@/pages/Guest';
 
 const Guest = () => {
   return (
