@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import { useSetRecoilState, useRecoilValue, SetterOrUpdater } from "recoil";
-import { userState } from '@/recolis/user';
-import { UserType } from '@/types/UserType';
+import { useAnonymousUser } from '@/hooks';
 import { componentClassName } from '@/utils';
 import { TextField, WoodButton } from '@/components/atoms';
 import styles from '@css/module/home.module.scss';
@@ -11,19 +8,7 @@ type Props = {
 }
 
 const AnonymousSignUp: React.FC<Props> = ({ status }) => {
-  const [name, setName] = useState<string>('');
-
-  const user = useRecoilValue(userState);
-  const setUser: SetterOrUpdater<UserType> = useSetRecoilState(userState);
-
-  /** ダミー */
-  const createUser = async () => {
-    setUser({
-      isSignIn: true,
-      id: 1,
-      name
-    })
-  }
+  const { name, setName, createAnonymousUser } = useAnonymousUser();
 
   return (
     <div className={componentClassName(styles.signupModal, status === 1 && styles.signupModal_active)}>
@@ -34,13 +19,8 @@ const AnonymousSignUp: React.FC<Props> = ({ status }) => {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }}
         placeholder="名前を入力してください"
       />
-      <WoodButton value="決定" onClick={createUser} />
-      <div>
-        {user.isSignIn && 'true'}<br />
-        {user.name}
-      </div>
+      <WoodButton value="決定" onClick={createAnonymousUser} />
     </div>
-
   )
 }
 
