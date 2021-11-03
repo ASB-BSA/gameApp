@@ -11,22 +11,26 @@ const useAuth = () => {
 
   useEffect(() => {
     (async () => {
+      if (checked) return;
+
       try {
-        if (user.isSignIn) setChecked(true);
-
-        const userJson = await getUser();
-
-        if (userJson) {
-          setUser({
-            name: userJson.name,
-            isSignIn: true,
-            id: userJson.ID,
-          })
+        if (user.isSignIn) {
+          setChecked(true);
         } else {
-          throw new Error('')
+          const userJson = await getUser();
+
+          if (userJson) {
+            setUser({
+              name: userJson.name,
+              isSignIn: true,
+              id: userJson.ID,
+            })
+          } else {
+            throw new Error()
+          }
         }
       } catch (e) {
-        console.log('ろぐいんしてください');
+        console.log('ろぐいんしてくださいいいい');
         setUser({
           name: '',
           isSignIn: false,
@@ -36,7 +40,7 @@ const useAuth = () => {
         setChecked(true);
       }
     })();
-  }, []);
+  }, [checked, setUser, user.isSignIn]);
 
   return { user, checked }
 }
