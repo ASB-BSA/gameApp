@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import axios from 'axios';
 import 'destyle.css';
 import '@css/global/global.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.withCredentials = true;
 
 ReactDOM.render(
   <React.StrictMode>
