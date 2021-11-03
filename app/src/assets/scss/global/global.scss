@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+
 body {
   height: calc(var(--vh, 1vh) * 100);
+  font-family: 'Kiwi Maru', serif;
+  line-height: 1.5;
 }
 
 img {

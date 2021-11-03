@@ -1,7 +1,7 @@
 import { componentClassName } from '@/utils';
 import styles from '@css/module/home.module.scss';
-import playButton from '@imgs/home/home__play-button.png';
-import logo from '@imgs/home/home__logo.png';
+import playButton from '@imgs/home/start__play-button.png';
+import logo from '@imgs/home/start__logo.png';
 
 type Props = {
   status: number,
