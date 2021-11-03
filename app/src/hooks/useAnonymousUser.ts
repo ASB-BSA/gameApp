@@ -7,6 +7,7 @@ import axios from 'axios';
 const useAnonymousUser = () => {
   const [name, setName] = useState<string>('');
   const [wait, setWait] = useState<boolean>(false);
+  const [redirect, setRedirect] = useState<boolean>(false)
 
   const setUser: SetterOrUpdater<UserType> = useSetRecoilState(userState);
 
@@ -24,6 +25,8 @@ const useAnonymousUser = () => {
         id: res.data.ID,
         name: res.data.name,
       })
+
+      setRedirect(true);
     } catch (e) {
       console.log(e);
     } finally {
@@ -32,7 +35,7 @@ const useAnonymousUser = () => {
     }
   }
 
-  return { name, setName, createAnonymousUser };
+  return { name, redirect, setName, createAnonymousUser };
 }
 
 export default useAnonymousUser;
