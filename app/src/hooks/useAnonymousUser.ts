@@ -26,12 +26,12 @@ const useAnonymousUser = () => {
         name: res.data.name,
       })
 
-      setRedirect(true);
-    } catch (e) {
-      console.log(e);
-    } finally {
       setWait(false);
       setName('');
+      setRedirect(true);
+    } catch (e) {
+      setWait(false);
+      console.log(e);
     }
   }
 
