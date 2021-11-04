@@ -10,24 +10,22 @@ const useAuth = () => {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+
     (async () => {
-      if (checked) return;
+      if (checked || user.isSignIn || !isMounted) return;
 
       try {
-        if (user.isSignIn) {
-          setChecked(true);
-        } else {
-          const userJson = await getUser();
+        const userJson = await getUser();
 
-          if (userJson) {
-            setUser({
-              name: userJson.name,
-              isSignIn: true,
-              id: userJson.ID,
-            })
-          } else {
-            throw new Error()
-          }
+        if (userJson) {
+          setUser({
+            name: userJson.name,
+            isSignIn: true,
+            id: userJson.ID,
+          })
+        } else {
+          throw new Error()
         }
       } catch (e) {
         console.log('ろぐいんしてくださいいいい');
@@ -40,6 +38,8 @@ const useAuth = () => {
         setChecked(true);
       }
     })();
+
+    return () => { isMounted = false };
   }, [checked, setUser, user.isSignIn]);
 
   return { user, checked }
