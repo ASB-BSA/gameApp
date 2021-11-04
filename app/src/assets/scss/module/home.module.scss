@@ -1,5 +1,21 @@
 @import "../foundation";
 
+.redirectWrapper {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $cWhite;
+  z-index: 50000;
+  opacity: 0;
+  transition: opacity 0.5s;
+  &_active {
+    opacity: 1;
+  }
+}
+
 .wrapper {
   position: relative;
   height: 100vh;
