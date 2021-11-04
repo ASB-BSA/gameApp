@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useSetRecoilState, useRecoilValue, SetterOrUpdater } from "recoil";
-import { userState } from '@/recolis/user';
+import { useUserRecoil } from '@/recolis';
 import { componentClassName } from '@/utils';
 import { Start, AnonymousSignUp } from '@/components/templates';
 import styles from '@css/module/home.module.scss';
 import { Redirect } from 'react-router';
 
 const Home = () => {
-  const user = useRecoilValue(userState);
+  const { user } = useUserRecoil();
   const [status, setStatus] = useState<number>(0);
   const [redirect, setRedirect] = useState<boolean>(false);
 

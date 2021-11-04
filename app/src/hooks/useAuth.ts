@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useSetRecoilState, useRecoilValue, SetterOrUpdater } from "recoil";
-import { userState } from '@/recolis/user';
-import { UserType } from '@/types/UserType';
+import { useUserRecoil } from '@/recolis';
 import { getUser } from '@/utils';
 
 const useAuth = () => {
-  const user = useRecoilValue(userState);
-  const setUser: SetterOrUpdater<UserType> = useSetRecoilState(userState);
+  const { user, setUser } = useUserRecoil();
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
