@@ -15,6 +15,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.3.2",
+    "axios": "^0.24.0",
     "craco-alias": "^3.0.1",
     "destyle.css": "^3.0.0",
     "framer-motion": "^4",
