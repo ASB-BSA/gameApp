@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import { useSetRecoilState, SetterOrUpdater } from "recoil";
-import { userState } from '@/recolis/user';
-import { UserType, UserJsonType } from '@/types/UserType';
+import { useUserRecoil } from '@/recolis';
+import { UserJsonType } from '@/types/UserType';
 import axios from 'axios';
 
 const useAnonymousUser = () => {
+  const { setUser } = useUserRecoil();
   const [name, setName] = useState<string>('');
   const [wait, setWait] = useState<boolean>(false);
   const [redirect, setRedirect] = useState<boolean>(false)
-
-  const setUser: SetterOrUpdater<UserType> = useSetRecoilState(userState);
 
   const createAnonymousUser = async () => {
     if (wait || !name) return;

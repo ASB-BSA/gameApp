@@ -11,6 +11,7 @@ type Props = {
 const Start: React.FC<Props> = ({ status, onClick }) => {
   return (
     <>
+      <div className={componentClassName(styles.redirectWrapper, status >= 4 && styles.redirectWrapper_active)} />
       <div className={componentClassName(styles.logo, status > 0 && styles.logo_active)}>
         <img src={logo} alt="boomin ファイターズ" />
       </div>
