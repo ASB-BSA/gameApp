@@ -3,7 +3,7 @@ import { useUserRecoil } from '@/recolis';
 import { componentClassName } from '@/utils';
 import { Start, AnonymousSignUp } from '@/components/templates';
 import styles from '@css/module/home.module.scss';
-import { Redirect } from 'react-router';
+import { Navigate } from 'react-router';
 
 const Home = () => {
   const { user } = useUserRecoil();
@@ -22,7 +22,7 @@ const Home = () => {
     }
   }
 
-  if (redirect) return <Redirect to="/mypage" />
+  if (redirect) return <Navigate to="/mypage" />
 
   return (
     <div className={styles.wrapper}>

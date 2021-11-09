@@ -1,5 +1,5 @@
 import { useAuth } from '@/hooks';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const AuthProvider: React.FC = (props) => {
   const { user, checked } = useAuth();
@@ -8,7 +8,7 @@ const AuthProvider: React.FC = (props) => {
     <>
       {checked && (
         <>
-          {user.isSignIn ? props.children : <Redirect to="/" />}
+          {user.isSignIn ? props.children : <Navigate to="/" />}
         </>
       )}
     </>
