@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import styles from '@css/module/mypage.module.scss';
 import dummyChar from '@imgs/mypage/dummy-char.png';
+import gem from '@imgs/mypage/gem.png';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const MyPage = () => {
           </div>
           <div className={styles.status__item_gems}>
             <div className={styles.gems}>
-              <div className={styles.gems__gem}></div>
+              <div className={styles.gems__gem}><img src={gem} alt=""/></div>
               <span className={styles.gems__count}>99999</span>
             </div>
           </div>

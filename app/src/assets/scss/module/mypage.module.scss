@@ -37,22 +37,24 @@
     z-index: 1000;
   }
   &__item {
+    display: flex;
+    align-items: center;
     background-color: $cBrown100;
     border-radius: 8px;
     width: 419px;
     height: 50px;
-    padding: 0 20px;
     font-size: 30px;
-    display: flex;
-    align-items: center;
+    line-height: 1;
     &_user {
       @extend #{$this}__item;
       width: 419px;
       flex-shrink: 0;
+      padding: 0 20px;
     }
     &_gems {
       @extend #{$this}__item;
       width: 218px;
+      padding: 0 12px 0 15px;
     }
   }
 }
@@ -65,6 +67,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  &__gem {
+    width: 35px;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .character {
