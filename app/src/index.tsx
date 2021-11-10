@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
 
+(window as any)._axios = axios;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -11,4 +11,4 @@ const Provider: React.FC = ({ children }) => {
 }
 
 export default Provider;
-export { default as AuthProvider } from './AuthProvider';
+export { default as Protect } from './Protect';

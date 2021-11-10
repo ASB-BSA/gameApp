@@ -1,7 +1,7 @@
 import { useAuth } from '@/hooks';
 import { Navigate } from 'react-router-dom';
 
-const AuthProvider: React.FC = (props) => {
+const Protect: React.FC = (props) => {
   const { user, checked } = useAuth();
 
   return (
@@ -15,4 +15,4 @@ const AuthProvider: React.FC = (props) => {
   )
 }
 
-export default AuthProvider;
+export default Protect;
