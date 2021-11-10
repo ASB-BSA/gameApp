@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { Protect } from '@/providers';
 import styles from '@css/module/mypage.module.scss';
 import styled from 'styled-components';
 import dummyChar from '@imgs/mypage/dummy-char.png';
@@ -13,37 +14,39 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.wrapper}>
-      <StatusBar>
-        <StatusInner>
-          <StatusUser>
-            <User>
-              <span>サクヤさん</span>
-            </User>
-          </StatusUser>
-          <StatusGems>
-            <Gems>
-              <Gem><img src={gem} alt="" /></Gem>
-              <span>99999</span>
-            </Gems>
-          </StatusGems>
-        </StatusInner>
-      </StatusBar>
-      <Character>
-        <img src={dummyChar} alt="dummy" />
-      </Character>
-      <Navigation>
-        <TeamButton onClick={() => navigate('/mypage/team')}>
-          <Label style={{ top: 109, left: 54, }}>チーム編成</Label>
-        </TeamButton>
-        <ButtleButton onClick={() => navigate('/match')}>
-          <Label style={{ top: 147, left: '50%', transform: 'translateX(-50%),' }}>対戦</Label>
-        </ButtleButton>
-        <HistoryButton onClick={() => navigate('/mypage/history')}>
-          <Label style={{ top: 109, right: 99 }}>戦歴</Label>
-        </HistoryButton>
-      </Navigation>
-    </div>
+    <Protect>
+      <div className={styles.wrapper}>
+        <StatusBar>
+          <StatusInner>
+            <StatusUser>
+              <User>
+                <span>サクヤさん</span>
+              </User>
+            </StatusUser>
+            <StatusGems>
+              <Gems>
+                <Gem><img src={gem} alt="" /></Gem>
+                <span>99999</span>
+              </Gems>
+            </StatusGems>
+          </StatusInner>
+        </StatusBar>
+        <Character>
+          <img src={dummyChar} alt="dummy" />
+        </Character>
+        <Navigation>
+          <TeamButton onClick={() => navigate('/mypage/team')}>
+            <Label style={{ top: 109, left: 54, }}>チーム編成</Label>
+          </TeamButton>
+          <ButtleButton onClick={() => navigate('/match')}>
+            <Label style={{ top: 147, left: '50%', transform: 'translateX(-50%),' }}>対戦</Label>
+          </ButtleButton>
+          <HistoryButton onClick={() => navigate('/mypage/history')}>
+            <Label style={{ top: 109, right: 99 }}>戦歴</Label>
+          </HistoryButton>
+        </Navigation>
+      </div>
+    </Protect>
   )
 }
 

@@ -1,6 +1,10 @@
+import { Protect } from '@/providers';
+
 const Team = () => {
   return (
-    <div>準備中(team)</div>
+    <Protect>
+      <div>準備中(team)</div>
+    </Protect>
   )
 }
 
