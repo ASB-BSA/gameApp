@@ -1,0 +1,157 @@
+@import "./../foundation/";
+
+.wrapper {
+  @include wrapper;
+  @include bg;
+  background-image: url("#{$imgPath}/mypage/mypage__bg.jpg");
+}
+
+// .status {
+//   $this: &;
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 123px;
+//   background-color: $cBrown500;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 50%;
+//     left: 0;
+//     transform: translateY(-50%);
+//     z-index: 10;
+//     display: block;
+//     height: 109px;
+//     width: 100%;
+//     background-image: url("#{$imgPath}/mypage/status__bg.png");
+//     @include bg;
+//   }
+//   &__inner {
+//     position: relative;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 674px;
+//     padding: 0 8px;
+//     z-index: 1000;
+//   }
+//   &__item {
+//     display: flex;
+//     align-items: center;
+//     background-color: $cBrown100;
+//     border-radius: 8px;
+//     width: 419px;
+//     height: 50px;
+//     font-size: 30px;
+//     line-height: 1;
+//     &_user {
+//       @extend #{$this}__item;
+//       width: 419px;
+//       flex-shrink: 0;
+//       padding: 0 20px;
+//     }
+//     &_gems {
+//       @extend #{$this}__item;
+//       width: 218px;
+//       padding: 0 12px 0 15px;
+//     }
+//   }
+// }
+
+// .user {
+//   width: 100%;
+// }
+
+// .gems {
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   &__gem {
+//     width: 35px;
+//     display: flex;
+//     align-items: center;
+//   }
+// }
+
+// .character {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 682px;
+// }
+
+// .navigation {
+//   $this: &;
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: calc(263px - 9px);
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 201px;
+//     z-index: 10;
+//     display: block;
+//     background-image: url("#{$imgPath}/mypage/navigation__bg.png");
+//     @include bg;
+//   }
+//   &__button {
+//     position: absolute;
+//     cursor: pointer;
+//     @include bg;
+//     z-index: 100;
+//     &_team {
+//       @extend #{$this}__button;
+//       bottom: 2px;
+//       left: 2px;
+//       width: 261px;
+//       height: 161px;
+//       background-image: url("#{$imgPath}/mypage/navigation__team.png");
+//     }
+//     &_buttle {
+//       @extend #{$this}__button;
+//       bottom: 24px;
+//       left: 50%;
+//       transform: translateX(-50%);
+//       height: 229px;
+//       width: 220px;
+//       background-image: url("#{$imgPath}/mypage/navigation__buttle.png");
+//     }
+//     &_history {
+//       @extend #{$this}__button;
+//       bottom: 2px;
+//       right: 2px;
+//       width: 261px;
+//       height: 161px;
+//       background-image: url("#{$imgPath}/mypage/navigation__history.png");
+//     }
+//   }
+//   &__label {
+//     position: absolute;
+//     font-size: 30px;
+//     color: $cWhite;
+//     line-height: 1;
+//     &_team {
+//       @extend #{$this}__label;
+//       top: 109px;
+//       left: 54px;
+//     }
+//     &_buttle {
+//       @extend #{$this}__label;
+//       top: 147px;
+//       left: 50%;
+//       transform: translateX(-50%);
+//     }
+//     &_history {
+//       @extend #{$this}__label;
+//       top: 109px;
+//       right: 99px;
+//     }
+//   }
+// }
