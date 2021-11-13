@@ -195,8 +195,9 @@ const HistoryButton = styled.div`
 const Label = styled.div`
   position: absolute;
   font-size: 30px;
-  color: $cWhite;
+  color: #fff;
   line-height: 1;
+  transform: translateX(-50%);
 `
 
 export default MyPage;
