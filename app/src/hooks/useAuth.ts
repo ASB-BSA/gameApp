@@ -10,22 +10,25 @@ const useAuth = () => {
     let isMounted = true;
 
     (async () => {
-      if (checked || user.isSignIn || !isMounted) return;
+      if (checked || !isMounted) return;
 
       try {
-        const userJson = await getUser();
+        if (!user.isSignIn) {
+          const userJson = await getUser();
 
-        if (userJson) {
-          setUser({
-            name: userJson.name,
-            isSignIn: true,
-            id: userJson.ID,
-          })
-        } else {
-          throw new Error()
+          if (userJson) {
+            setUser({
+              name: userJson.name,
+              isSignIn: true,
+              id: userJson.ID,
+            })
+          } else {
+            throw new Error('ろぐいんしてくださいいいい')
+          }
         }
+
       } catch (e) {
-        console.log('ろぐいんしてくださいいいい');
+        console.log(e);
         setUser({
           name: '',
           isSignIn: false,
@@ -37,7 +40,7 @@ const useAuth = () => {
     })();
 
     return () => { isMounted = false };
-  }, [checked, setUser, user.isSignIn]);
+  }, []);
 
   return { user, checked }
 }
