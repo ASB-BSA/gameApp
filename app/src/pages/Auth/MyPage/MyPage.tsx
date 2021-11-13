@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router';
-import { Protect } from '@/providers';
 import styles from '@css/module/mypage.module.scss';
 import styled from 'styled-components';
 import dummyChar from '@imgs/mypage/dummy-char.png';
@@ -14,7 +13,6 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   return (
-    <Protect>
       <div className={styles.wrapper}>
         <StatusBar>
           <StatusInner>
@@ -46,7 +44,6 @@ const MyPage = () => {
           </HistoryButton>
         </Navigation>
       </div>
-    </Protect>
   )
 }
 
