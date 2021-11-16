@@ -2,18 +2,24 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '@imgs/home/start__logo.png';
 import playButton from '@imgs/home/start__play-button.png';
+import { getUser } from '@/utils';
 
 type Props = {}
 
 const Start: React.FC<Props> = () => {
   const navigate = useNavigate();
 
+  const onClickNavigate = async () => {
+    const user = await getUser();
+    user ? navigate('/mypage') : navigate('/signup');
+  }
+
   return (
     <>
       <Logo>
         <img src={logo} alt="boomin ファイターズ" />
       </Logo>
-      <PlayButton onClick={()=> navigate('/signup')}>
+      <PlayButton onClick={onClickNavigate}>
         <img src={playButton} alt="play" />
       </PlayButton>
     </>
