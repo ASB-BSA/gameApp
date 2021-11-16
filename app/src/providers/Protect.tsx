@@ -1,14 +1,14 @@
 import { useAuth } from '@/hooks';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-const Protect: React.FC = (props) => {
+const Protect: React.FC = () => {
   const { user, checked } = useAuth();
 
   return (
     <>
       {checked && (
         <>
-          {user.isSignIn ? props.children : <Navigate to="/" />}
+          {user.isSignIn ? <Outlet /> : <Navigate to="/" />}
         </>
       )}
     </>
