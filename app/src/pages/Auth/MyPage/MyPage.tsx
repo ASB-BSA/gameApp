@@ -34,13 +34,13 @@ const MyPage = () => {
         </Character>
         <Navigation>
           <TeamButton onClick={() => navigate('/mypage/team')}>
-            <Label style={{ top: 109, left: 54, }}>チーム編成</Label>
+            <Label style={{ top: 109 }}>チーム編成</Label>
           </TeamButton>
-          <ButtleButton onClick={() => navigate('/match')}>
-            <Label style={{ top: 147, left: '50%', transform: 'translateX(-50%),' }}>対戦</Label>
+          <ButtleButton onClick={() => navigate('/room')}>
+            <Label style={{ top: 147 }}>対戦</Label>
           </ButtleButton>
           <HistoryButton onClick={() => navigate('/mypage/history')}>
-            <Label style={{ top: 109, right: 99 }}>戦歴</Label>
+            <Label style={{ top: 109 }}>戦歴</Label>
           </HistoryButton>
         </Navigation>
       </div>
@@ -194,7 +194,9 @@ const Label = styled.div`
   font-size: 30px;
   color: #fff;
   line-height: 1;
+  left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 `
 
 export default MyPage;

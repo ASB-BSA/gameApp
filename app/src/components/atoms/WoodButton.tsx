@@ -1,5 +1,6 @@
-import styles from '@css/module/formItem.module.scss';
+import styled from 'styled-components';
 import { onXX } from '@/types/onXX';
+import woodButton from '@imgs/common/wood-button__bg.png';
 
 type Props = onXX & {
   value?: string
@@ -10,14 +11,27 @@ const WoodButton: React.FC<Props> = ({
   onClick, value, style
 }) => {
   return (
-    <button
+    <Button
       type="button"
       onClick={onClick}
-      className={styles.woodButton}
       style={style}
     >
       <span>{value}</span>
-    </button>)
+    </Button>
+
+  )
 }
+
+const Button = styled.button`
+  background-image: url(${woodButton});
+  width: 359px;
+  height: 106px;
+  color: #e6e5d1;
+  font-size: 48px;
+  padding: 6px 16px 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
 
 export default WoodButton;
