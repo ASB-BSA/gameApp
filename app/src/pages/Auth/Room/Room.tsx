@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import wrapperBg from '@imgs/common/bg_woods.jpg';
 import goHomeButtonBg from '@imgs/room/room__btn_home.png';
@@ -7,6 +8,8 @@ import { TextField, WoodButton } from '@/components/atoms';
 import { WoodModal } from '@/components/organisms';
 
 const Room: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Inner>
@@ -30,7 +33,7 @@ const Room: React.FC = () => {
             <WoodButton value="ルーム作成" />
           </ModalBody>
           <ModalFooter>
-            <GoHomeButton />
+            <GoHomeButton onClick={()=>{navigate('/mypage')}} />
             <GoSettingButton />
           </ModalFooter>
         </WoodModal>
