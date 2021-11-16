@@ -1,36 +1,5 @@
 @import "../foundation/";
 
-.textField {
-  $this: &;
-  position: relative;
-  font-size: 32px;
-  $transitionDuration: 0.5s;
-  &_active {
-    #{$this}__placeholder {
-      opacity: 0.3;
-      transform: scale(0.6) translate(-88px, -4px);
-    }
-  }
-  &__placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(16px, 18px);
-    transition: all $transitionDuration;
-    pointer-events: none;
-    color: $cOcher300;
-  }
-  &__body {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 31px 16px 7px;
-    transition: all $transitionDuration;
-    border: 1px solid $cBlack;
-    background-color: $cOcher100;
-  }
-}
-
 .woodButton {
   background-image: url("#{$imgPath}/home/wood-button__bg.png");
   @include bg;
