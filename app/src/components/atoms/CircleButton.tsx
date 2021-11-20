@@ -56,7 +56,6 @@ const Label = styled.div`
   transform: translate(-50%,calc(-50% - 3px));
   color: #fff;
   font-size: 26px;
-  line-height: 1;
   text-shadow:
     1px 1px 0 #3e332c, -1px -1px 0 #3e332c,
     -1px 1px 0 #3e332c, 1px -1px 0 #3e332c,

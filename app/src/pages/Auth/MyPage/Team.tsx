@@ -1,10 +1,16 @@
+import { useModal } from '@/hooks';
 import styled from 'styled-components';
 import { Wrapper } from '@/components/templates';
-import { BottomNav, CharacterInfo } from '@/components/organisms';
+import { BottomNav, CharacterInfo, SettingModal } from '@/components/organisms';
 import addIcon from '@imgs/team/add-icon.png';
 import innerBg from '@imgs/team/team__bg.jpg';
 
 const Team = () => {
+  const [
+    settingModalOpen, setSettingModalOpen,
+    handleModalOpen, handleModalClose
+  ] = useModal();
+
   return (
     <Wrapper>
       <Navbar>
@@ -28,6 +34,9 @@ const Team = () => {
       <Inner>
         <CharacterInfo />
       </Inner>
+      <SettingModal
+        
+      />
       <BottomNav />
     </Wrapper>
   )
