@@ -3,7 +3,8 @@
 body {
   height: calc(var(--vh, 1vh) * 100);
   font-family: 'Kiwi Maru', serif;
-  line-height: 1.5;
+  line-height: 1;
+  font-size: 30px;
 }
 
 img {

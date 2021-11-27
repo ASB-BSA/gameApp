@@ -1,7 +1,0 @@
-@import "./../foundation/";
-
-.wrapper {
-  @include wrapper;
-  @include bg;
-  background-image: url("#{$imgPath}/mypage/mypage__bg.jpg");
-}
