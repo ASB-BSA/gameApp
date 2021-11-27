@@ -7,25 +7,30 @@ type Props = onXX & {
   value: number,
   icon?: string,
   style?: React.CSSProperties,
+  setIsMouseUp: any,
 }
 
-const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange }) => {
+const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange, setIsMouseUp }) => {
   const max = 500;
 
   return (
-    <Wrapper style={style}>
+    <Wrapper style={style}
+    >
       <Header>
         <Icon></Icon>
         <Heading>{name}</Heading>
         <Value>{value}</Value>
       </Header>
-      <ProgressBar>
+      <ProgressBar
+        onMouseUp={setIsMouseUp}
+        onTouchEnd={setIsMouseUp}
+      >
         <Range
           type="range"
-          min={0}
+          min={20}
           max={max}
           value={value}
-          onFocus={onChange}
+          onChange={onChange}
         />
         <Progress style={{ width: `${value / max * 100}%` }} />
         <Bg />
