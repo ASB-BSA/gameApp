@@ -54,7 +54,7 @@ const ButtonCallbackFunc = (props: ButtonProps) => ({
   color: props.color
 });
 
-const Ancher = styled.a.attrs((props: ButtonProps) => ButtonCallbackFunc(props))`${ButtonStyle}`;
-const Button = styled.button.attrs((props: ButtonProps) => ButtonCallbackFunc(props))`${ButtonStyle}`;
-const Div = styled.div.attrs((props: ButtonProps) => ButtonCallbackFunc(props))`${ButtonStyle}`;
-const Input = styled.input.attrs((props: ButtonProps) => ButtonCallbackFunc(props))`${ButtonStyle}`;
+const Ancher = styled.a.attrs((props: ButtonProps) => ButtonCallbackFunc(props))<ButtonProps>`${ButtonStyle}`;
+const Button = styled.button.attrs((props: ButtonProps) => ButtonCallbackFunc(props))<ButtonProps>`${ButtonStyle}`;
+const Div = styled.div.attrs((props: ButtonProps) => ButtonCallbackFunc(props))<ButtonProps>`${ButtonStyle}`;
+const Input = styled.input.attrs((props: ButtonProps) => ButtonCallbackFunc(props))<ButtonProps>`${ButtonStyle}`;
