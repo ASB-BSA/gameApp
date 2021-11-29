@@ -92,7 +92,7 @@ const StatusBar = styled.div`
 
   &::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
