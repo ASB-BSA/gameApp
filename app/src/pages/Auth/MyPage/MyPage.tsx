@@ -5,15 +5,18 @@ import statusBg from '@imgs/mypage/status__bg.png';
 import mypageBg from '@imgs/mypage/mypage__bg.jpg';
 import { BottomNav } from '@/components/organisms';
 import { Wrapper } from '@/components/templates';
+import { useRecoilValue } from 'recoil';
+import { userState } from '@/recolis/user';
 
 const MyPage = () => {
+  const profile = useRecoilValue(userState)
   return (
     <Wrapper bg={mypageBg}>
       <StatusBar>
         <StatusInner>
           <StatusUser>
             <User>
-              <span>サクヤさん</span>
+              <span>{profile.name}</span>
             </User>
           </StatusUser>
           <StatusGems>

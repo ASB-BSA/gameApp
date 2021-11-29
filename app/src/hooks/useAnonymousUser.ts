@@ -7,7 +7,7 @@ const useAnonymousUser = () => {
   const { setUser } = useUserRecoil();
   const [name, setName] = useState<string>('');
   const [wait, setWait] = useState<boolean>(false);
-  const [redirect, setRedirect] = useState<boolean>(false)
+  const [redirect, setRedirect] = useState<boolean>(false);
 
   const createAnonymousUser = async () => {
     if (wait || !name) return;
