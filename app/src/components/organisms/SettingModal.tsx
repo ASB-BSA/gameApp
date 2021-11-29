@@ -1,7 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useState } from 'react';
-import { EditBar } from '@/components/atoms';
+import { onXX } from '@/types/onXX';
+import { EditBar, RectangleButton } from '@/components/atoms';
 import rightArrow from '@imgs/team/right-arrow.png';
+import dummy from '@imgs/common/dummy-char.png';
+import agilityIcon from '@imgs/common/status__icon_agility.png';
+import attackIcon from '@imgs/common/status__icon_attack.png';
+import avoidanceIcon from '@imgs/common/status__icon_avoidance.png';
+import spIcon from '@imgs/common/status__icon_sp.png';
+import defenceIcon from '@imgs/common/status__icon_defence.png';
+import hpIcon from '@imgs/common/status__icon_hp.png';
 
 type Params = {
   params: {
@@ -13,7 +21,11 @@ type Params = {
   }
 }
 
-const SettingModal = () => {
+type Props = onXX & {
+  handleModalClose: any,
+}
+
+const SettingModal: React.FC<Props> = ({ handleModalClose }) => {
   const [isDepletion, setIsDepletion] = useState(false);
   const [paramPoints, setParamPoints] = useState<{
     total: number,
@@ -26,42 +38,42 @@ const SettingModal = () => {
       }
     }
   }>({
-    total: 100,
+    total: 1000,
     params: {
       hp: {
         label: 'HP',
         value: 20,
-        icon: '',
+        icon: hpIcon,
         isMouseUp: false,
       },
       attack: {
         label: '攻撃',
         value: 20,
-        icon: '',
+        icon: attackIcon,
         isMouseUp: false,
       },
       defence: {
         label: '防御',
         value: 20,
-        icon: '',
+        icon: defenceIcon,
         isMouseUp: false,
       },
       avoidance: {
         label: '回避',
         value: 20,
-        icon: '',
+        icon: avoidanceIcon,
         isMouseUp: false,
       },
       agility: {
         label: '素早さ',
         value: 20,
-        icon: '',
+        icon: agilityIcon,
         isMouseUp: false,
       },
       sp: {
         label: '運',
         value: 20,
-        icon: '',
+        icon: spIcon,
         isMouseUp: false,
       }
     }
@@ -127,6 +139,9 @@ const SettingModal = () => {
           <Heading>キャラクター設定</Heading>
         </Header>
         <Body>
+          <Char>
+            <img src={dummy} alt="" />
+          </Char>
           <EditForm>
             <Points>
               <div>残り</div>
@@ -138,6 +153,7 @@ const SettingModal = () => {
                   key={key}
                   value={paramPoints.params[key].value}
                   name={paramPoints.params[key].label}
+                  icon={paramPoints.params[key].icon}
                   style={{ marginBottom: 8 }}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeSetParams(key, Number(e.target.value))}
                   setIsMouseUp={() => (setIsMouseUp(key))}
@@ -153,6 +169,9 @@ const SettingModal = () => {
               <img src={rightArrow} alt="" />
             </AbilityEditButton>
           </Ability>
+          <div style={{ textAlign: 'center' }}>
+            <RectangleButton onClick={handleModalClose}>決定</RectangleButton>
+          </div>
         </Body>
       </Inner>
     </Wrapper>
@@ -165,6 +184,8 @@ const Wrapper = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(0,0,0,0.24);
   padding: 24px 14px;
   z-index: 999999999;
@@ -186,12 +207,23 @@ const Heading = styled.div`
 
 const Inner = styled.div`
   height: 100%;
+  overflow: scroll;
   border-radius: 10px;
   background-color: rgba(233, 231, 231, 0.95);
 `;
 
 const Body = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 30px;
+
+`;
+
+const Char = styled.div`
+  width: 272px;
+  margin: 0 auto;
 `;
 
 const EditForm = styled.div`
@@ -221,7 +253,7 @@ const Ability = styled.div`
   margin: 25px 0 46px;
   p {
     font-size: 26px;
-    line-height:(33/26);
+    line-height:${(33 / 26)};
   }
 `;
 

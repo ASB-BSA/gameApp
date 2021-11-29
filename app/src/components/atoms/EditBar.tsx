@@ -17,7 +17,7 @@ const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange, setIsMou
     <Wrapper style={style}
     >
       <Header>
-        <Icon></Icon>
+        <Icon><img src={icon} alt="" /></Icon>
         <Heading>{name}</Heading>
         <Value>{value}</Value>
       </Header>
@@ -66,7 +66,7 @@ const Value = styled.div`
 `;
 
 const Icon = styled.div`
-
+  margin-right: 13px;
 `;
 
 const ProgressBar = styled.div`

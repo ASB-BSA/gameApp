@@ -7,7 +7,7 @@ import innerBg from '@imgs/team/team__bg.jpg';
 
 const Team = () => {
   const [
-    settingModalOpen, setSettingModalOpen,
+    settingModalOpen,
     handleModalOpen, handleModalClose
   ] = useModal();
 
@@ -32,11 +32,11 @@ const Team = () => {
         </NavButton>
       </Navbar>
       <Inner>
-        <CharacterInfo />
+        <CharacterInfo handleModalOpen={handleModalOpen} />
       </Inner>
-      <SettingModal
-        
-      />
+      {settingModalOpen && (
+        <SettingModal handleModalClose={handleModalClose} />
+      )}
       <BottomNav />
     </Wrapper>
   )

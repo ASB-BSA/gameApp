@@ -7,12 +7,14 @@ import { Status, CircleButton, TypeIcon } from '@/components/atoms';
 
 
 type Props = {
+  handleModalOpen?: any,
 }
 
-const CharacterInfo: React.FC<Props> = (props) => {
+const CharacterInfo: React.FC<Props> = ({ handleModalOpen }) => {
   return (
     <Wrapper>
       <CircleButton
+        onClick={handleModalOpen}
         icon={settingIcon}
         style={{
           position: 'absolute',
@@ -39,7 +41,7 @@ const CharacterInfo: React.FC<Props> = (props) => {
             <DataBody>
               <Status
                 attack={0} defence={0}
-                avoidance={0} critical={0}
+                avoidance={0} sp={0}
                 agility={0} hp={0}
               />
             </DataBody>
