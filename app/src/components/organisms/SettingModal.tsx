@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useState } from 'react';
 import { onXX } from '@/types/onXX';
 import { EditBar, RectangleButton } from '@/components/atoms';
@@ -23,9 +23,10 @@ type Params = {
 
 type Props = onXX & {
   handleModalClose: any,
+  isOpen?: boolean,
 }
 
-const SettingModal: React.FC<Props> = ({ handleModalClose }) => {
+const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
   const [isDepletion, setIsDepletion] = useState(false);
   const [paramPoints, setParamPoints] = useState<{
     total: number,
@@ -133,7 +134,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper isOpen={isOpen}>
       <Inner>
         <Header>
           <Heading>キャラクター設定</Heading>
@@ -178,7 +179,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose }) => {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isOpen?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -188,6 +189,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: rgba(0,0,0,0.24);
   padding: 24px 14px;
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  opacity: ${props => props.isOpen ? 1 : 0};
+  transform: ${props => props.isOpen ? 'scale(1)' : 'scale(0)'};
+  transition: all 0.3s;
   z-index: 999999999;
 `;
 
