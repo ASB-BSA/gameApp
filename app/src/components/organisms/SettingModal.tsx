@@ -23,6 +23,7 @@ type Params = {
 
 type Props = onXX & {
   handleModalClose: any,
+  isOpen?: boolean,
 }
 
 const SettingModal: React.FC<Props> = ({ handleModalClose }) => {

@@ -34,9 +34,10 @@ const Team = () => {
       <Inner>
         <CharacterInfo handleModalOpen={handleModalOpen} />
       </Inner>
-      {settingModalOpen && (
-        <SettingModal handleModalClose={handleModalClose} />
-      )}
+      <SettingModal
+        handleModalClose={handleModalClose}
+        isOpen={settingModalOpen}
+      />
       <BottomNav />
     </Wrapper>
   )
