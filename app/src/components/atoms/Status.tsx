@@ -3,20 +3,20 @@ import hpIcon from '@imgs/common/status__icon_hp.png';
 import attackIcon from '@imgs/common/status__icon_attack.png';
 import agilityIcon from '@imgs/common/status__icon_agility.png';
 import avoidanceIcon from '@imgs/common/status__icon_avoidance.png';
-import criticalIcon from '@imgs/common/status__icon_critical.png';
+import spIcon from '@imgs/common/status__icon_sp.png';
 import defenceIcon from '@imgs/common/status__icon_defence.png';
 
 type Props = {
   attack: number,
   defence: number,
   avoidance: number,
-  critical: number,
+  sp: number,
   agility: number,
   hp: number,
 }
 
 const Status: React.FC<Props> = ({
-  attack, defence, avoidance, critical, agility, hp
+  attack, defence, avoidance, sp, agility, hp
 }) => {
   const params = [
     { name: 'HP', value: hp, icon: hpIcon },
@@ -24,7 +24,7 @@ const Status: React.FC<Props> = ({
     { name: '攻撃', value: attack, icon: attackIcon },
     { name: '素早さ', value: agility, icon: agilityIcon },
     { name: '防御', value: defence, icon: defenceIcon },
-    { name: '運', value: critical, icon: criticalIcon },
+    { name: '運', value: sp, icon: spIcon },
   ]
 
   return (
