@@ -1,3 +1,4 @@
+export { default as CharacterCard } from './CharacterCard';
 export { default as CircleButton } from './CircleButton';
 export { default as EditBar } from './EditBar';
 export { default as RectangleButton } from './RectangleButton';

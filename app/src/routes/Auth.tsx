@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import MyPage, { History, Team } from '@/pages/Auth/MyPage';
+import MyPage, { History, Team, ChangeIllust } from '@/pages/Auth/MyPage';
 import Room from '@/pages/Auth/Room';
 import Protect from '@/providers/Protect';
 import { BattleProvider } from '@/providers';
@@ -11,8 +11,10 @@ const Auth: React.FC = () => {
     <Routes>
       <Route path="/mypage" element={<Protect />}>
         <Route index element={<MyPage />} />
-        <Route path="team" element={<Team />} />
         <Route path="history" element={<History />} />
+        <Route path="team" element={<Team />}>
+          <Route path="change/:id" element={<ChangeIllust />} />
+        </Route>
       </Route>
       <Route path="/room" element={<Protect />}>
         <Route index element={<Room />} />

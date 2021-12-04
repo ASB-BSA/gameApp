@@ -197,6 +197,10 @@ const Wrapper = styled.div<{ isOpen?: boolean }>`
 `;
 
 const Header = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 119px;
   display: flex;
   justify-content: center;
@@ -211,10 +215,12 @@ const Heading = styled.div`
 `;
 
 const Inner = styled.div`
+  position: relative;
   height: 100%;
   overflow: scroll;
   border-radius: 10px;
   background-color: rgba(233, 231, 231, 0.95);
+  padding-top: 110px;
 `;
 
 const Body = styled.div`
@@ -223,7 +229,6 @@ const Body = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 30px;
-
 `;
 
 const Char = styled.div`

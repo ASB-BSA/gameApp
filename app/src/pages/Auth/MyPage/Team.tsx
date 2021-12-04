@@ -4,6 +4,7 @@ import { Wrapper } from '@/components/templates';
 import { BottomNav, CharacterInfo, SettingModal } from '@/components/organisms';
 import addIcon from '@imgs/team/add-icon.png';
 import innerBg from '@imgs/team/team__bg.jpg';
+import { Outlet } from 'react-router-dom';
 
 const Team = () => {
   const [
@@ -38,6 +39,7 @@ const Team = () => {
         handleModalClose={handleModalClose}
         isOpen={settingModalOpen}
       />
+      <Outlet />
       <BottomNav />
     </Wrapper>
   )
