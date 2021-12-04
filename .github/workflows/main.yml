@@ -8,13 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master  # リポジトリをチェックアウト
+        uses: actions/checkout@develop  # リポジトリをチェックアウト
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          cd app
+          npm install
 
       - name: Build
-        run: npm run build  # React ビルド
+        run: |
+          cd app
+          npm run build  # React ビルド
 
       - name: Deploy  # S3にデプロイ 
         env:
