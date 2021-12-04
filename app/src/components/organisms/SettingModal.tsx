@@ -197,7 +197,7 @@ const Wrapper = styled.div<{ isOpen?: boolean }>`
 `;
 
 const Header = styled.header`
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -207,6 +207,7 @@ const Header = styled.header`
   align-items: center;
   border-radius: 10px;
   background-color: #8e6441;
+  z-index:500;
 `;
 
 const Heading = styled.div`
@@ -220,15 +221,11 @@ const Inner = styled.div`
   overflow: scroll;
   border-radius: 10px;
   background-color: rgba(233, 231, 231, 0.95);
-  padding-top: 110px;
 `;
 
 const Body = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 30px;
+  height: calc(100% - 110px);
+  padding: 100px 30px;
 `;
 
 const Char = styled.div`

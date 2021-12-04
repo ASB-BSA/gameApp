@@ -39,7 +39,7 @@ const Modal = styled.div.attrs<{ bg: string }>(props => ({
 
 const ModalHeading = styled.div`
   position: absolute;
-  top: 16px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 40px;
