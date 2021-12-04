@@ -1,3 +1,4 @@
+import useSWR from 'swr';
 import { useModal } from '@/hooks';
 import styled from 'styled-components';
 import { Wrapper } from '@/components/templates';
@@ -5,6 +6,8 @@ import { BottomNav, CharacterInfo, SettingModal } from '@/components/organisms';
 import addIcon from '@imgs/team/add-icon.png';
 import innerBg from '@imgs/team/team__bg.jpg';
 import { Outlet } from 'react-router-dom';
+import axios from 'axios';
+import { UserJsonType } from '@/types/UserType';
 
 const Team = () => {
   const [
@@ -12,25 +15,16 @@ const Team = () => {
     handleModalOpen, handleModalClose
   ] = useModal();
 
+  const { data, error } = useSWR<UserJsonType>('/user', (url: string) => axios.get(url).then(res => res.data));
+
   return (
     <Wrapper>
       <Navbar>
-        {/* ダミー / ループで回す予定 */}
-        <NavButton>
-          <AddIcon />
-        </NavButton>
-        <NavButton>
-          <AddIcon />
-        </NavButton>
-        <NavButton>
-          <AddIcon />
-        </NavButton>
-        <NavButton>
-          <AddIcon />
-        </NavButton>
-        <NavButton>
-          <AddIcon />
-        </NavButton>
+        {data && data.Teams.teams.map(team => (
+          <NavButton key={team.id}>
+            <AddIcon />
+          </NavButton>
+        ))}
       </Navbar>
       <Inner>
         <CharacterInfo handleModalOpen={handleModalOpen} />

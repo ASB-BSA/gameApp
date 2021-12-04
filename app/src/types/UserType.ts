@@ -1,3 +1,5 @@
+import { TeamsType } from './TeamsType';
+
 export type UserType = {
   isSignIn: boolean,
   id: number,
@@ -6,8 +8,6 @@ export type UserType = {
 
 export type UserJsonType = {
   ID: number,
-  CreatedAt: string,
-  UpdatedAt: string,
-  DeletedAt?: string,
   name: string,
+  Teams: TeamsType,
 }
