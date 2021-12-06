@@ -17,7 +17,10 @@ type Charactor = {
 const BattleField = () => {
 
   useEffect(() => {
-    battleEffect('attack', 1, 6)
+    battleEffect('attack', 6, 1)
+    setTimeout(() => {
+      battleEffect('down', 6)
+    }, 1500)
   }, [])
 
   const charactors: CharactorsType = {

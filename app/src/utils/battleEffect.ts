@@ -31,21 +31,24 @@ const battleEffect = async (action: 'attack'|'down' , to: targetType, from?: num
         }, 900)
       })
 
+      const allEffects = document.querySelectorAll('.isAttack, .isDamage')
+
+      allEffects.forEach(e => {
+        e.classList.remove('isAttack')
+        e.classList.remove('isDamage')
+      })
+
       break
     
     case 'down':
+      if (to.length === 0) return
+      to.forEach(e => {
+        const target = document.querySelector(`.${commonName}${e}`)
+        target?.classList.add('isDown')
+      })
       
       break
   }
-
-  const allEffects = document.querySelectorAll('.isAttack, .isDamage, .isDown')
-
-  allEffects.forEach(e => {
-    e.classList.remove('isAttack')
-    e.classList.remove('isDamage')
-    e.classList.remove('isDown')
-  })
-
 }
 
 export default battleEffect
