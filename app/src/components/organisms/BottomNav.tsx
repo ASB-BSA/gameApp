@@ -29,6 +29,7 @@ const Navigation = styled.nav`
   left: 0;
   width: 100%;
   height: calc(263px - 9px);
+  z-index: 50000;
   &::before {
     content: "";
     position: absolute;

@@ -28,7 +28,7 @@ const Button = styled.button`
   height: 106px;
   color: #e6e5d1;
   font-size: 48px;
-  padding: 6px 16px 28px;
+  padding: 18px 16px 18px;
   display: flex;
   align-items: center;
   flex-direction: column;

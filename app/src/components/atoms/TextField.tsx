@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { componentClassName } from '@/utils';
-import styles from '@css/module/formItem.module.scss';
 import styled from 'styled-components';
 import { onXX } from '@/types/onXX';
 
@@ -55,7 +53,7 @@ const Wrapper = styled.div`
 const Placeholder = styled.label.attrs<{ isActive?: boolean | string }>(props => ({
   style: {
     opacity: props.isActive ? 0.3 : 1,
-    transform: props.isActive ? 'scale(0.6) translate(22px, 10px)' : 'translate(16px, 18px)',
+    transform: props.isActive ? 'scale(0.6) translate(22px, 10px)' : 'translate(16px, 26px)',
   }
 })) <{ isActive?: boolean | string }>`
   position: absolute;

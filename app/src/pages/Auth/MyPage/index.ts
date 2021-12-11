@@ -3,3 +3,4 @@ export default MyPage;
 
 export { default as Team } from './Team';
 export { default as History } from './History';
+export { default as ChangeIllust } from './ChangeIllust';
