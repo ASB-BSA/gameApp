@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useUserRecoil } from '@/recolis';
+import { useCharacterData } from '@/recolis/charcterData/handler';
 import { getUser } from '@/utils';
 
 const useAuth = () => {
   const { user, setUser } = useUserRecoil();
   const [checked, setChecked] = useState(false);
+  const { fetchCharacterData } = useCharacterData();
 
   useEffect(() => {
     let isMounted = true;
@@ -22,6 +24,8 @@ const useAuth = () => {
               isSignIn: true,
               id: userJson.ID,
             })
+
+            await fetchCharacterData();
           } else {
             throw new Error('ろぐいんしてくださいいいい')
           }
