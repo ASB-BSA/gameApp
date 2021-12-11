@@ -9,5 +9,7 @@ services:
         stdin_open: true
         tty: true
         ports: 
-            - 3000:3000
+            - 3983:3000
             - 9005:9005
+        extra_hosts:
+            - localhost:192.168.1.188

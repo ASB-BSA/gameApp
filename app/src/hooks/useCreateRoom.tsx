@@ -1,7 +1,7 @@
-import AwaitingEffect from '@/components/pages/auth/room/AwaitingEffect'
-import { roomtype } from '@/types/RoomType'
-import axios from 'axios'
+import type { roomtype } from '@/types/RoomType'
 import React, { useState } from 'react'
+import axios from 'axios'
+import AwaitingEffect from '@/components/pages/auth/room/AwaitingEffect'
 
 const useCreateRoom = () => {
   const [isAwaiting, setIsAwaiting] = useState(false)
@@ -26,7 +26,7 @@ const useCreateRoom = () => {
     setTimeout(async () => {
       await axios.get<roomtype>('/room')
         .then(res => {
-          setRoomId(res.data.ID)
+          setRoomId(res.data.id)
           setAwaitingNumber(res.data.roomNumber)
         })
         .catch(e => {

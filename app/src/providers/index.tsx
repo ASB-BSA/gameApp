@@ -13,3 +13,4 @@ const Provider: React.FC = ({ children }) => {
 export default Provider;
 export { default as Protect } from './Protect';
 export { default as BattleProvider } from './BattleProvider'
+export { default as IsBattleProvider } from './IsBattleProvider'
