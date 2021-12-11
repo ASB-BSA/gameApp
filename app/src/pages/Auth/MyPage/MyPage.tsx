@@ -7,9 +7,11 @@ import { BottomNav } from '@/components/organisms';
 import { Wrapper } from '@/components/templates';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/recolis/user';
+import { useNavigate } from 'react-router';
 
 const MyPage = () => {
   const profile = useRecoilValue(userState)
+  const navigation = useNavigate()
   return (
     <Wrapper bg={mypageBg}>
       <StatusBar>
@@ -28,7 +30,9 @@ const MyPage = () => {
         </StatusInner>
       </StatusBar>
       <Character>
-        <img src={dummyChar} alt="dummy" />
+        <img src={dummyChar} alt="dummy" onClick={() => {
+          navigation('/battle')
+        }} />
       </Character>
       <BottomNav />
     </Wrapper>
