@@ -26,7 +26,7 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
         }}
       />
       <Char>
-        <Link to={`/mypage/team/change/${currentChar.id}`}>
+        <Link to={`/mypage/team/${currentChar.id}/change`}>
           <CharImage src={dummyChar} />
         </Link>
       </Char>
