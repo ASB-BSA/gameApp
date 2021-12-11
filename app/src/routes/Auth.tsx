@@ -13,7 +13,7 @@ const Auth: React.FC = () => {
         <Route element={<IsBattleProvider />}>
           <Route path="mypage">
             <Route index element={<MyPage />} />
-            <Route path="team" element={<Team />}>
+            <Route path="team/:id" element={<Team />}>
               <Route path="change/:id" element={<ChangeIllust />} />
             </Route>
           </Route>

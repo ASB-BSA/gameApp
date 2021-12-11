@@ -1,4 +1,6 @@
+import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router';
+import { userState } from '@/recolis/user';
 import styled from 'styled-components';
 import navBg from '@imgs/mypage/navigation__bg.png';
 import team from '@imgs/mypage/navigation__team.png';
@@ -7,10 +9,11 @@ import history from '@imgs/mypage/navigation__history.png';
 
 const BottomNav = () => {
   const navigate = useNavigate();
+  const user = useRecoilValue(userState);
 
   return (
     <Navigation>
-      <TeamButton onClick={() => navigate('/mypage/team')}>
+      <TeamButton onClick={() => navigate(`/mypage/team/${user.teams[0].id}`)}>
         <Label style={{ top: 109 }}>チーム編成</Label>
       </TeamButton>
       <ButtleButton onClick={() => navigate('/room')}>
