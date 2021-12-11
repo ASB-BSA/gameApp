@@ -1,16 +1,44 @@
+import { useParams } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import { characterDataState } from '@/recolis/charcterData';
 import styled from 'styled-components';
-import { CharacterCard } from '@/components/atoms';
+import axios from 'axios';
 import bg from '@imgs/team/team__bg.jpg';
+import { CharacterCard } from '@/components/atoms';
+
+type Props = {
+
+}
 
 const ChangeIllustModal: React.FC = () => {
+  const characterDatas = useRecoilValue(characterDataState);
+  const { id } = useParams();
+
+  const changeIllust = async (id: number) => {
+    try {
+      const res = axios.put(`team/${id}`, {
+        
+      })
+    } catch (e) {
+
+    }
+  }
+
+
   return (
     <Wrapper bg={bg}>
       <Header>キャラクターイラスト変更</Header>
       <Inner>
         <CardList>
-          <Card>
-            <CharacterCard />
-          </Card>
+          {characterDatas.map(characterData => (
+            <Card
+              key={characterData.ID}
+            >
+              <CharacterCard
+                src={`${process.env.REACT_APP_BASE_URL}/image/${characterData.img}`}
+              />
+            </Card>
+          ))}
         </CardList>
       </Inner>
     </Wrapper>

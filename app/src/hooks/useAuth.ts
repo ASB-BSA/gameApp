@@ -23,6 +23,7 @@ const useAuth = () => {
               name: userJson.name,
               isSignIn: true,
               id: userJson.ID,
+              teams: userJson.Teams.teams
             })
 
             await fetchCharacterData();
@@ -36,7 +37,8 @@ const useAuth = () => {
         setUser({
           name: '',
           isSignIn: false,
-          id: 0
+          id: 0,
+          teams: []
         });
       } finally {
         setChecked(true);

@@ -18,22 +18,21 @@ const useAnonymousUser = () => {
       setWait(true);
       const res = await axios.post<UserJsonType>('/user', { name });
 
-      if (!(res.status >= 200 || res.status <= 299)) throw new Error('errorですよ！');
-
       setUser({
         isSignIn: true,
         id: res.data.ID,
         name: res.data.name,
+        teams: res.data.Teams.teams
       })
 
       await fetchCharacterData();
-      
+
       setWait(false);
       setName('');
       setRedirect(true);
     } catch (e) {
       setWait(false);
-      console.log(e);
+      console.log('error desuYO');
     }
   }
 

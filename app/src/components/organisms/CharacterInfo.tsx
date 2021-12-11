@@ -1,16 +1,19 @@
+import type { TeamType } from '@/types/TeamType';
 import styled from 'styled-components';
 import namePlateBg from '@imgs/team/name-plate.png';
 import dummyChar from '@imgs/common/dummy-char.png';
 import settingIcon from '@imgs/team/setting-icon.png';
 import typeIcon from '@imgs/team/type-icon.png';
 import { Status, CircleButton, TypeIcon } from '@/components/atoms';
+import { Link } from 'react-router-dom';
 
 
 type Props = {
   handleModalOpen?: any,
+  currentChar: TeamType,
 }
 
-const CharacterInfo: React.FC<Props> = ({ handleModalOpen }) => {
+const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
   return (
     <Wrapper>
       <CircleButton
@@ -23,7 +26,9 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen }) => {
         }}
       />
       <Char>
-        <CharImage src={dummyChar} />
+        <Link to={`/mypage/team/change/${currentChar.id}`}>
+          <CharImage src={dummyChar} />
+        </Link>
       </Char>
       <Inner>
         <TypeIcon
