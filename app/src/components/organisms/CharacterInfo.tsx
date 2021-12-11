@@ -1,12 +1,14 @@
+import type { CharacterDataType } from '@/types/CharacterDataType'
 import type { TeamType } from '@/types/TeamType';
+import { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { characterDataState } from '@/recolis/charcterData'
 import styled from 'styled-components';
 import namePlateBg from '@imgs/team/name-plate.png';
-import dummyChar from '@imgs/common/dummy-char.png';
 import settingIcon from '@imgs/team/setting-icon.png';
 import typeIcon from '@imgs/team/type-icon.png';
 import { Status, CircleButton, TypeIcon } from '@/components/atoms';
 import { Link } from 'react-router-dom';
-
 
 type Props = {
   handleModalOpen?: any,
@@ -14,6 +16,18 @@ type Props = {
 }
 
 const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
+  const [src, setSrc] = useState<string>('');
+  const [currentCharData, setCurrentCharData] = useState<CharacterDataType>()
+  const characterData = useRecoilValue(characterDataState);
+
+  useEffect(() => {
+    const current = characterData.find(data => data.id === currentChar.characterId)
+    if(current) {
+      setSrc(current.img);
+      setCurrentCharData(current);
+    }
+  }, [currentChar]);
+
   return (
     <Wrapper>
       <CircleButton
@@ -27,7 +41,7 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
       />
       <Char>
         <Link to={`/mypage/team/${currentChar.id}/change`}>
-          <CharImage src={dummyChar} />
+          {currentChar.characterId && <CharImage src={`${process.env.REACT_APP_BASE_URL}/image/${src}`} />}
         </Link>
       </Char>
       <Inner>
@@ -39,7 +53,7 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
             left: 0,
           }}
         />
-        <NamePlate>くまくまくま</NamePlate>
+        <NamePlate>{currentCharData?.name}</NamePlate>
         <Datas>
           <Data>
             <DataHeading>ステータス</DataHeading>

@@ -1,7 +1,7 @@
 import type { TeamType } from '@/types/TeamType';
 import type { UserJsonType } from '@/types/UserType';
 import useSWR from 'swr';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { useModal } from '@/hooks';
 import { getUser } from '@/utils';
@@ -20,6 +20,7 @@ const Team = () => {
   ] = useModal();
 
   const char = useSWR('/character', (url: string) => axios.get(url).then(res => res.data));
+  const locale = useLocation();
 
   const { id } = useParams();
 
@@ -50,7 +51,7 @@ const Team = () => {
         setCurrentChar(current ?? teams[0]);
       }
     })();
-  }, []);
+  }, [locale]);
 
   return (
     <Wrapper>
