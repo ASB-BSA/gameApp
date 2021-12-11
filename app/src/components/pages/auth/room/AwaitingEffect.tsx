@@ -1,4 +1,7 @@
+import { pusher } from '@/utils';
+import axios from 'axios';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { PropagateLoader } from 'react-spinners';
 import styled from 'styled-components';
 
@@ -8,6 +11,21 @@ type Props = {
 }
 
 const AwaitingEffect: React.FC<Props> = ({onClose, roomNumber}) => {
+  const navigate = useNavigate()
+  const channel = pusher.subscribe('battle-room')
+  channel.bind(`${roomNumber}`, (data: { battleID: string }) => {
+    console.log(data)
+    axios.post('/battle', { battleId: Number(data.battleID) })
+      .then(e => {
+        console.log(e.data)
+        navigate('/battle/ready')
+      })
+      .catch(e => {
+        console.log(e.response)
+        alert(e.response.data.roomNumber)
+      })
+  })
+
   return (
     <Background>
       <Loading>

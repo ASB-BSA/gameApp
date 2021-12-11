@@ -1,5 +1,5 @@
 export type roomtype = {
-  ID: number
+  id: number
   roomNumber: number
   roomStatus: 'open'|'close'
 }
