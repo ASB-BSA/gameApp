@@ -1,13 +1,8 @@
-export type TeamType = {
+import type { ParamType } from './ParamType';
+
+export type TeamType = ParamType & {
   id: number,
   characterId: number,
-  attack: number,
-  defence: number,
-  avoidance: number,
-  hit: number,
-  agility: number,
-  hp: number,
-  criticalRate: number,
   mp: number,
 }
 
