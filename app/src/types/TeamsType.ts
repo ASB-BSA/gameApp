@@ -1,10 +1,4 @@
-import type { ParamType } from './ParamType';
-
-export type TeamType = ParamType & {
-  id: number,
-  characterId: number,
-  mp: number,
-}
+import type { TeamType } from './TeamType';
 
 export type TeamsType = {
   ID: number,
