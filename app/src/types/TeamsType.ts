@@ -1,15 +1,4 @@
-export type TeamType = {
-  id: number,
-  characterId: number,
-  attack: number,
-  defence: number,
-  avoidance: number,
-  hit: number,
-  agility: number,
-  hp: number,
-  criticalRate: number,
-  mp: number,
-}
+import type { TeamType } from './TeamType';
 
 export type TeamsType = {
   ID: number,

@@ -8,6 +8,7 @@ export const userState = atom<UserType>({
     isSignIn: false,
     name: '',
     id: 0,
+    teams: []
   }
 });
 

@@ -71,7 +71,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
         icon: agilityIcon,
         isMouseUp: false,
       },
-      sp: {
+      criticalRate: {
         label: '運',
         value: 20,
         icon: spIcon,
