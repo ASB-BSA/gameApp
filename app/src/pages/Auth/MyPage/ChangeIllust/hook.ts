@@ -13,13 +13,13 @@ const useLogic = () => {
 
   const changeIllust = async (charId: number) => {
     try {
-      const res = axios.put(`team/${id}`, {
+      await axios.put(`team/${id}`, {
         characterId: charId
       });
 
-      navigate(`/mypage/team/${id}?update=1`);
+      navigate(`/mypage/team/${id}`);
     } catch (e) {
-
+      alert('変更に失敗しました')
     }
   };
 
