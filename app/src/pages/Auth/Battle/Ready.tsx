@@ -21,8 +21,8 @@ const Ready = () => {
       const userCharactor = battleIF.userTeams.teams[0]
       const opponentCharactor = battleIF.opponentTeams.teams[0]
 
-      const userCharactorData = charactors.find(f => f.ID === userCharactor.characterId)
-      const opponentCharactorData = charactors.find(f => f.ID === opponentCharactor.characterId)
+      const userCharactorData = charactors.find(f => f.id === userCharactor.characterId)
+      const opponentCharactorData = charactors.find(f => f.id === opponentCharactor.characterId)
 
       setUserCharactorPath(userCharactorData?.img)
       setOpponentCharactorPath(opponentCharactorData?.img)
