@@ -5,14 +5,7 @@ import { useLocation, useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { useModal } from '@/hooks';
 import { getUser } from '@/utils';
-import styled from 'styled-components';
 import axios from 'axios';
-import { Outlet } from 'react-router-dom';
-import { BottomNav, CharacterInfo, SettingModal } from '@/components/organisms';
-import addIcon from '@imgs/team/add-icon.png';
-import innerBg from '@imgs/team/team__bg.jpg';
-import { Wrapper } from '@/components/templates';
-
 
 const useLogic = () => {
   const [
