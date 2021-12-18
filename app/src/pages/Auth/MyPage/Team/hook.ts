@@ -13,7 +13,8 @@ import addIcon from '@imgs/team/add-icon.png';
 import innerBg from '@imgs/team/team__bg.jpg';
 import { Wrapper } from '@/components/templates';
 
-const Team = () => {
+
+const useLogic = () => {
   const [
     settingModalOpen,
     handleModalOpen, handleModalClose
@@ -36,7 +37,7 @@ const Team = () => {
     hit: 0,
     agility: 0,
     hp: 0,
-    criticalRate: 0,
+    sp: 0,
   });
 
   useEffect(() => {
@@ -53,67 +54,9 @@ const Team = () => {
     })();
   }, [locale]);
 
-  return (
-    <Wrapper>
-      <Navbar>
-        {user && user.Teams.teams.map((team, index) => (
-          <NavButton key={index}>
-            <AddIcon />
-          </NavButton>
-        ))}
-      </Navbar>
-      <Inner>
-        <CharacterInfo
-          currentChar={currentChar}
-          handleModalOpen={handleModalOpen}
-        />
-      </Inner>
-      <SettingModal
-        handleModalClose={handleModalClose}
-        isOpen={settingModalOpen}
-      />
-      <Outlet />
-      <BottomNav />
-    </Wrapper>
-  )
+  return {
+    currentChar, user, settingModalOpen, handleModalOpen, handleModalClose
+  }
 }
 
-const Navbar = styled.nav`
-  height: 152px;
-  background-color: #8e6441;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1px;
-`;
-
-const NavButton = styled.div`
-  position: relative;
-  width: 144px;
-  height: 144px;
-  background: radial-gradient(ellipse at center,  #7d3c00 0%,#653912 100%);
-  border-radius: 14px;
-  border: 4px solid #491e0b;
-`;
-
-const AddIcon = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 45px;
-  height: 47px;
-  background-image: url(${addIcon});
-`;
-
-const Inner = styled.div`
-  width: 100%;
-  height: calc(100% - 152px);
-  background-image: url(${innerBg});
-  background-size: cover;
-  background-position: center;
-  border: 8px solid #2bab5e;
-  border-radius: 10px;
-`;
-
-export default Team;
+export default useLogic;
