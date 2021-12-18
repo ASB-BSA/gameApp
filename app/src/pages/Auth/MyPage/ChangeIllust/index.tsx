@@ -1,8 +1,5 @@
-import { useParams } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
-import { characterDataState } from '@/recolis/charcterData';
+import useLogic from './hook';
 import styled from 'styled-components';
-import axios from 'axios';
 import bg from '@imgs/team/team__bg.jpg';
 import { CharacterCard } from '@/components/atoms';
 
@@ -11,19 +8,7 @@ type Props = {
 }
 
 const ChangeIllustModal: React.FC = () => {
-  const characterDatas = useRecoilValue(characterDataState);
-  const { id } = useParams();
-
-  const changeIllust = async (id: number) => {
-    try {
-      const res = axios.put(`team/${id}`, {
-        
-      })
-    } catch (e) {
-
-    }
-  }
-
+  const { changeIllust, characterDatas} = useLogic();
 
   return (
     <Wrapper bg={bg}>
@@ -32,7 +17,8 @@ const ChangeIllustModal: React.FC = () => {
         <CardList>
           {characterDatas.map(characterData => (
             <Card
-              key={characterData.ID}
+              key={characterData.id}
+              onClick={() => changeIllust(characterData.id)}
             >
               <CharacterCard
                 src={`${process.env.REACT_APP_BASE_URL}/image/${characterData.img}`}

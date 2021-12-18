@@ -1,5 +1,5 @@
 export type CharacterDataType = {
-  ID: number,
+  id: number,
   name: string,
   english: string,
   icon: string,

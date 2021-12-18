@@ -33,7 +33,6 @@ const useAuth = () => {
         }
 
       } catch (e) {
-        console.log(e);
         setUser({
           name: '',
           isSignIn: false,

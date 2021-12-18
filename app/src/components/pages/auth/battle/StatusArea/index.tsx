@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
-import { StatusItem } from '.';
+import { StatusItem } from '@/components/pages/auth/battle';
 
 type StatusType = {
   name:      string
