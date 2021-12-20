@@ -6,4 +6,5 @@ export type ParamType = {
   agility: number,
   hp: number,
   sp: number,
+  criticalRate: number
 }

@@ -31,6 +31,7 @@ const useLogic = () => {
     agility: 0,
     hp: 0,
     sp: 0,
+    criticalRate: 0
   });
 
   useEffect(() => {

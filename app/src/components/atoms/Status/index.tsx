@@ -10,13 +10,13 @@ type Props = {
   attack: number,
   defence: number,
   avoidance: number,
-  sp: number,
+  criticalRate: number,
   agility: number,
   hp: number,
 }
 
 const Status: React.FC<Props> = ({
-  attack, defence, avoidance, sp, agility, hp
+  attack, defence, avoidance, criticalRate, agility, hp
 }) => {
   const params = [
     { name: 'HP', value: hp, icon: hpIcon },
@@ -24,7 +24,7 @@ const Status: React.FC<Props> = ({
     { name: '攻撃', value: attack, icon: attackIcon },
     { name: '素早さ', value: agility, icon: agilityIcon },
     { name: '防御', value: defence, icon: defenceIcon },
-    { name: '運', value: sp, icon: spIcon },
+    { name: '運', value: criticalRate, icon: spIcon },
   ]
 
   return (

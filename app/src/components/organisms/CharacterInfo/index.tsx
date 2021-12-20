@@ -20,6 +20,8 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
   const [currentCharData, setCurrentCharData] = useState<CharacterDataType>()
   const characterData = useRecoilValue(characterDataState);
 
+  console.log(currentChar)
+
   useEffect(() => {
     const current = characterData.find(data => data.id === currentChar.characterId)
     if(current) {
@@ -59,9 +61,9 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
             <DataHeading>ステータス</DataHeading>
             <DataBody>
               <Status
-                attack={0} defence={0}
-                avoidance={0} sp={0}
-                agility={0} hp={0}
+                attack={currentChar.attack} defence={currentChar.defence}
+                avoidance={currentChar.avoidance} criticalRate={currentChar.criticalRate}
+                agility={currentChar.agility} hp={currentChar.hp}
               />
             </DataBody>
           </Data>
