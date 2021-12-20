@@ -1,6 +1,9 @@
+import type { onXX } from '@/types/onXX';
+import type { TeamType } from '@/types/TeamType';
 import styled from 'styled-components';
-import { useState } from 'react';
-import { onXX } from '@/types/onXX';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useChar } from '@/hooks';
 import { EditBar, RectangleButton } from '@/components/atoms';
 import rightArrow from '@imgs/team/right-arrow.png';
 import dummy from '@imgs/common/dummy-char.png';
@@ -24,9 +27,12 @@ type Params = {
 type Props = onXX & {
   handleModalClose: any,
   isOpen?: boolean,
+  currentChar: TeamType
+  setCurrentChar: any
 }
 
-const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
+const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen, currentChar, setCurrentChar }) => {
+  const { src, currentCharData } = useChar(currentChar);
   const [isDepletion, setIsDepletion] = useState(false);
   const [paramPoints, setParamPoints] = useState<{
     total: number,
@@ -39,7 +45,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
       }
     }
   }>({
-    total: 1000,
+    total: 500,
     params: {
       hp: {
         label: 'HP',
@@ -79,6 +85,23 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
       }
     }
   });
+
+  useEffect(() => {
+    const newParams = { ...paramPoints.params };
+    newParams.hp.value = currentChar.hp;
+    newParams.attack.value = currentChar.attack;
+    newParams.defence.value = currentChar.defence;
+    newParams.avoidance.value = currentChar.avoidance;
+    newParams.agility.value = currentChar.agility;
+    newParams.criticalRate.value = currentChar.criticalRate;
+
+    setParamPoints({
+      ...paramPoints,
+      params: {
+        ...newParams
+      }
+    })
+  }, [currentChar]);
 
   const setIsMouseUp = (key: string) => {
     const params = paramPoints.params;
@@ -133,6 +156,36 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
     }
   }
 
+  const onClickUpdate = async () => {
+    const { hp, attack, defence, avoidance, agility, criticalRate } = paramPoints.params;
+
+    const params = {
+      hp: hp.value,
+      attack: attack.value,
+      defence: defence.value,
+      avoidance: avoidance.value,
+      agility: agility.value,
+      criticalRate: criticalRate.value
+    }
+
+    try {
+      await axios.put(`team/${currentChar.id}`, {
+        id: currentChar.id,
+        ...params
+      });
+
+      setCurrentChar({
+        ...currentChar,
+        ...params
+      });
+
+      handleModalClose();
+    } catch (e) {
+      console.log((e as any).response)
+      alert('おーい')
+    }
+  }
+
   return (
     <Wrapper isOpen={isOpen}>
       <Inner>
@@ -141,7 +194,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
         </Header>
         <Body>
           <Char>
-            <img src={dummy} alt="" />
+            {currentChar.characterId && <img src={`${process.env.REACT_APP_BASE_URL}/image/${src}`} />}
           </Char>
           <EditForm>
             <Points>
@@ -152,6 +205,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
               {(Object.keys(paramPoints.params) as (keyof Params)[]).map((key) => (
                 <EditBar
                   key={key}
+                  step={(key as string) === 'hp' ? 10 : 1}
                   value={paramPoints.params[key].value}
                   name={paramPoints.params[key].label}
                   icon={paramPoints.params[key].icon}
@@ -171,7 +225,7 @@ const SettingModal: React.FC<Props> = ({ handleModalClose, isOpen }) => {
             </AbilityEditButton>
           </Ability>
           <div style={{ textAlign: 'center' }}>
-            <RectangleButton onClick={handleModalClose}>決定</RectangleButton>
+            <RectangleButton onClick={onClickUpdate}>決定</RectangleButton>
           </div>
         </Body>
       </Inner>
