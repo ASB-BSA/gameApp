@@ -8,9 +8,10 @@ type Props = onXX & {
   icon?: string,
   style?: React.CSSProperties,
   setIsMouseUp: any,
+  step?: number
 }
 
-const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange, setIsMouseUp }) => {
+const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange, setIsMouseUp, step }) => {
   const max = 500;
 
   return (
@@ -31,6 +32,7 @@ const EditBar: React.FC<Props> = ({ name, value, icon, style, onChange, setIsMou
           max={max}
           value={value}
           onChange={onChange}
+          step={step}
         />
         <Progress style={{ width: `${value / max * 100}%` }} />
         <Bg />

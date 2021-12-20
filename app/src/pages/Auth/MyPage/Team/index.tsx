@@ -7,14 +7,14 @@ import innerBg from '@imgs/team/team__bg.jpg';
 import { Wrapper } from '@/components/templates';
 
 const Team = () => {
-  const { currentChar, user, settingModalOpen, handleModalOpen, handleModalClose } = useLogic();
+  const { currentChar, setCurrentChar, user, settingModalOpen, handleModalOpen, handleModalClose } = useLogic();
 
   return (
     <Wrapper>
       <Navbar>
         {user && user.Teams.teams.map((team, index) => (
           <NavButton key={index}>
-            <AddIcon />
+
           </NavButton>
         ))}
       </Navbar>
@@ -25,6 +25,8 @@ const Team = () => {
         />
       </Inner>
       <SettingModal
+        currentChar={currentChar}
+        setCurrentChar={setCurrentChar}
         handleModalClose={handleModalClose}
         isOpen={settingModalOpen}
       />
@@ -50,16 +52,9 @@ const NavButton = styled.div`
   background: radial-gradient(ellipse at center,  #7d3c00 0%,#653912 100%);
   border-radius: 14px;
   border: 4px solid #491e0b;
-`;
+  &::before {
 
-const AddIcon = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 45px;
-  height: 47px;
-  background-image: url(${addIcon});
+  }
 `;
 
 const Inner = styled.div`

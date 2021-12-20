@@ -13,12 +13,11 @@ const useLogic = () => {
     handleModalOpen, handleModalClose
   ] = useModal();
 
-  const char = useSWR('/character', (url: string) => axios.get(url).then(res => res.data));
   const locale = useLocation();
 
   const { id } = useParams();
 
-  const [user, setUser] = useState<UserJsonType>()
+  const [user, setUser] = useState<UserJsonType>();
 
   const [currentChar, setCurrentChar] = useState<TeamType>({
     id: 0,
@@ -49,7 +48,7 @@ const useLogic = () => {
   }, [locale]);
 
   return {
-    currentChar, user, settingModalOpen, handleModalOpen, handleModalClose
+    currentChar, setCurrentChar, user, settingModalOpen, handleModalOpen, handleModalClose
   }
 }
 
