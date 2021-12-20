@@ -1,10 +1,6 @@
-import type { CharacterDataType } from '@/types/CharacterDataType'
 import type { TeamType } from '@/types/TeamType';
-import { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import { characterDataState } from '@/recolis/charcterData'
+import { useChar } from '@/hooks';
 import styled from 'styled-components';
-import { getCharData } from '@/utils';
 import namePlateBg from '@imgs/team/name-plate.png';
 import settingIcon from '@imgs/team/setting-icon.png';
 import typeIcon from '@imgs/team/type-icon.png';
@@ -17,17 +13,7 @@ type Props = {
 }
 
 const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
-  const [src, setSrc] = useState<string>('');
-  const [currentCharData, setCurrentCharData] = useState<CharacterDataType>()
-  const characterData = useRecoilValue(characterDataState);
-
-  useEffect(() => {
-    const current = getCharData(currentChar.characterId, characterData);
-    if (current) {
-      setSrc(current.img);
-      setCurrentCharData(current);
-    }
-  }, [currentChar]);
+  const { src, currentCharData } = useChar(currentChar);
 
   return (
     <Wrapper>
