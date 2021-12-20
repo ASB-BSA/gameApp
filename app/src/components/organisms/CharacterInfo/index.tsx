@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { characterDataState } from '@/recolis/charcterData'
 import styled from 'styled-components';
+import { getCharData } from '@/utils';
 import namePlateBg from '@imgs/team/name-plate.png';
 import settingIcon from '@imgs/team/setting-icon.png';
 import typeIcon from '@imgs/team/type-icon.png';
@@ -20,11 +21,9 @@ const CharacterInfo: React.FC<Props> = ({ handleModalOpen, currentChar }) => {
   const [currentCharData, setCurrentCharData] = useState<CharacterDataType>()
   const characterData = useRecoilValue(characterDataState);
 
-  console.log(currentChar)
-
   useEffect(() => {
-    const current = characterData.find(data => data.id === currentChar.characterId)
-    if(current) {
+    const current = getCharData(currentChar.characterId, characterData);
+    if (current) {
       setSrc(current.img);
       setCurrentCharData(current);
     }

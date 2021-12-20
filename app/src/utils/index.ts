@@ -4,3 +4,4 @@ export { default as getUser } from './getUser';
 export { default as battleEffect } from './battleEffect';
 export { default as pusher } from './pusher';
 export { default as sleep } from './sleep';
+export { default as getCharData } from './getCharData'
